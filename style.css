@@ -1,0 +1,18 @@
+body {
+  font-family: "Roboto";
+}
+
+h1 {
+  font-family: "Crete Round";
+  max-width: 400px;
+  line-height: 1;
+}
+
+a {
+  font-family: "Crete Round";
+  font-size: 1.2em;
+}
+
+.header {
+  padding: 2em;
+}

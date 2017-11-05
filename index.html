@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>NYC Women's Resources</title>
+  <link href="https://fonts.googleapis.com/css?family=Crete+Round|Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css"></head>
+  <link rel="stylesheet" href="style.css">
+  <body>
+    <div class="container" id="app">
+      <header class="row header">
+        <div class="columns small-12 medium-6">
+          <h1>New York City Women's Resource Finder</h1>
+          <small>Built by Nicola Beuscher | <a href="https://github.com/deweydell/nyc-womens-resources-2" target="_blank">view on github</a></small>
+        </div>
+        <div class="columns small-12 medium-6">
+          <p>The NYC Women's Resource Network is a free, user-friendly database of over 1,000 nonprofit organizations and governmental agencies that work to advance and benefit women and families in New York City. A user can tailor their search by keyword, category, and/or borough to receive a customized listing of organizations that address their needs.</p>
+          <a href="https://data.cityofnewyork.us/Social-Services/NYC-Women-s-Resource-Network-Database/pqg4-dm6b" target="_blank">View the database on NYC Open Data</a>
+        </div>
+      </header>
+
+      <section class="callout secondary">
+        <form class="row">
+          <p>Filter by Borough</p>
+          <select v-model="borough">
+            <option v-for="borough in boroughs" :value="borough">{{ borough }}</option>
+          </select>
+          <a @click="displayOrgs(`${borough}=Y`)" class="button">Filter</a>
+        </form>
+      </section>
+
+      <section class="row" v-for="orgs in processedOrgs">
+        <div class="columns small-12 large-4" v-for="org in orgs">
+          <div class="card" >
+            <div class="card-divider">
+              <a v-bind:href="org.url" target="_blank">{{ org.organizationname }}</a>
+            </div>
+            <div class="card-section">
+              <p>{{ org.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="app.js"></script>
+  </body>
+  </html>
