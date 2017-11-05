@@ -7,3 +7,12 @@ A vue.js app that pulls from an NYC OpenData social services database. Allows yo
 The NYC Women's Resource Network is a free, user-friendly database of over 1,000 nonprofit organizations and governmental agencies that work to advance and benefit women and families in New York City. A user can tailor their search by keyword, category, and/or borough to receive a customized listing of organizations that address their needs.
 
 [View the database on NYC Open Data](https://data.cityofnewyork.us/Social-Services/NYC-Women-s-Resource-Network-Database/pqg4-dm6b)
+
+## Future Features
+* Add ability to search by multiple boroughs and multiple categories
+* Add ability to sort results
+* Improve design 
+  * Add tags, phone number, other information to the results cards
+  * Ability to toggle description
+  * Add custom styles, remove foundation
+* Add ability to rate or upvote the organizations & then sort by highest-rated
