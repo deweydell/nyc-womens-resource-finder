@@ -9,10 +9,11 @@ The NYC Women's Resource Network is a free, user-friendly database of over 1,000
 [View the database on NYC Open Data](https://data.cityofnewyork.us/Social-Services/NYC-Women-s-Resource-Network-Database/pqg4-dm6b)
 
 ## Future Features
-* Add ability to search by multiple boroughs and multiple categories
-* Add ability to sort results
-* Improve design 
-  * Add tags, phone number, other information to the results cards
-  * Ability to toggle description
-  * Add custom styles, remove foundation
-* Add ability to rate or upvote the organizations & then sort by highest-rated
+- [X] Add ability to filter by multiple boroughs and multiple categories
+- [ ] Add ability to search results by user-inputted keyword
+- [ ] Add ability to sort results
+- [ ] Improve design 
+  - [ ] Add phone number, other information to the results cards
+  - [ ] Ability to toggle description?
+  - [X] Add custom styles, remove foundation
+- [ ] Add ability to rate or upvote the organizations & then sort by highest-rated
