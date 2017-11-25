@@ -2,17 +2,41 @@ body {
   font-family: "Roboto";
 }
 
+header {
+  border-bottom: 1px solid black;
+}
+
 h1 {
   font-family: "Crete Round";
   max-width: 400px;
   line-height: 1;
+  font-size: 3em;
+  font-weight: 400;
 }
 
 a {
   font-family: "Crete Round";
   font-size: 1.2em;
+  color: blue;
 }
 
-.header {
+.row {
+  max-width: 1000px;
+  margin: 0 auto;
   padding: 2em;
+}
+
+.card {
+  padding: 2em;
+  margin: 1em 0;
+  border: 1px solid black;
+}
+
+.label {
+  display: inline-block;
+  color: white;
+  padding: .5em;
+  margin-right: .5em;
+  margin-bottom: .5em;
+  background-color: blue;
 }
