@@ -15,12 +15,15 @@
     </header>
 
     <main id="app" class="row">
-      <section>
-        <h3>{{title}}</h3>
-      </section>
 
-      <section v-for="org in results">
-        <org-card :org="org"></org-card
+      <div v-if="loading">
+        <h4>Loading...</h4>
+      </div>
+      <section v-else>
+        <h3>{{title}}</h3>
+        <template v-for="org in results">
+          <org-card :org="org"></org-card>
+        </template>
       </section>
     </main>
 

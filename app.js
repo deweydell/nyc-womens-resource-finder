@@ -51,7 +51,8 @@ const vm = new Vue({
     results: [],
     boroughs: Boroughs,
     categories: Categories,
-    title: ""
+    title: "",
+    loading: true
   },
   mounted() {
     this.displayOrgs();
@@ -64,6 +65,7 @@ const vm = new Vue({
         .then(records => {
           this.results = records;
           this.title = `${this.results.length} organizations found`
+          this.loading = false;
         })
         .catch(error => console.log(error));
     },
