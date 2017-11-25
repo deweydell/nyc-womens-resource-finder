@@ -6,7 +6,7 @@ const Categories = [
   "child_care_parent_information",
   "community_service_volunteerism",
   "counseling_support_groups",
-  " disabilities",
+  "disabilities",
   "domestic_violence",
   "education",
   "employment_job_training",
@@ -37,10 +37,13 @@ function buildUrl(queryList = "") {
 
 let orgCard = Vue.component('org-card', {
   props: ['org'],
-  template: '<div class="card" v-if="org.url"><a v-bind:href="org.url" target="_blank">{{ org.organizationname }}</a><p>{{ org.description }}</p><div class="labels"><span class="label" v-for="category in categories">{{category}}</span></div></div>',
+  template: '<div class="card" v-if="org.url"><a v-bind:href="org.url" target="_blank">{{ org.organizationname }}</a><p>{{ org.description }}</p><div class="labels category"><span class="label" v-for="category in categories">{{category.split("_").join(" ")}}</span></div><div class="labels borough"><span class="label" v-for="borough in boroughs">{{borough.split("_").join(" ")}}</span></div></div>',
   computed: {
     categories() {
       return Categories.filter(category => this.org[category] == "Y")
+    },
+    boroughs() {
+      return Boroughs.filter(borough => this.org[borough] == "Y")
     }
   }
 })
@@ -49,8 +52,11 @@ const vm = new Vue({
   el: "#app",
   data: {
     results: [],
+    filters: [],
     boroughs: Boroughs,
+    borough: "",
     categories: Categories,
+    category: "",
     title: "",
     loading: true
   },
@@ -68,6 +74,10 @@ const vm = new Vue({
           this.loading = false;
         })
         .catch(error => console.log(error));
+    },
+    clearFilters() {
+      this.filters = [];
+      this.displayOrgs();
     },
     components: {
       'org-card': orgCard

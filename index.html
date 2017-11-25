@@ -10,21 +10,36 @@
 
     <header class="row">
       <h1>New York City Women's Resource Finder</h1>
-      <small>Built by Nicola Beuscher | <a href="https://github.com/deweydell/nyc-womens-resources-2" target="_blank">view on github</a> | <a href="https://data.cityofnewyork.us/Social-Services/NYC-Women-s-Resource-Network-Database/pqg4-dm6b" target="_blank">view on NYC Open Data</a></small>
+      <small>Built by Nicola Beuscher | <a href="https://github.com/deweydell/nyc-womens-resources-2" target="_blank">view project on github</a> | <a href="https://data.cityofnewyork.us/Social-Services/NYC-Women-s-Resource-Network-Database/pqg4-dm6b" target="_blank">view data at NYC Open Database</a></small>
       <p>The NYC Women's Resource Network is a free, user-friendly database of over 1,000 nonprofit organizations and governmental agencies that work to advance and benefit women and families in New York City. A user can tailor their search by keyword, category, and/or borough to receive a customized listing of organizations that address their needs.</p>
     </header>
 
     <main id="app" class="row">
+      <div class="sidebar">
+        <button type="button" name="button" v-on:click="displayOrgs(filters)">Search</button>
+        <button type="button" name="button" v-on:click="clearFilters()">Clear Filters</button>
+        <h3>Filter by Borough</h3>
+        <div class="filter-option" v-for="borough in boroughs">
+          <input type="checkbox" v-bind:value="borough" v-bind:id="borough" v-model="filters"></input>
+          <label v-bind:for="borough" v-text="borough.split('_').join(' ')"></label>
+        </div>
 
-      <div v-if="loading">
+        <h3>Filter by Category</h3>
+        <div class="filter-option" v-for="category in categories">
+          <input type="checkbox" v-bind:value="category" v-bind:id="category" v-model="filters"></input>
+          <label v-bind:for="category" v-text="category.split('_').join(' ')"></label>
+        </div>
+      </div>
+
+      <div class="list" v-if="loading">
         <h4>Loading...</h4>
       </div>
-      <section v-else>
-        <h3>{{title}}</h3>
+      <div class="list" v-else>
+        <h3 v-text="title"></h3>
         <template v-for="org in results">
-          <org-card :org="org"></org-card>
+          <org-card v-bind:org="org"></org-card>
         </template>
-      </section>
+      </div>
     </main>
 
   <script src="https://unpkg.com/vue"></script>

@@ -2,22 +2,41 @@ body {
   font-family: "Roboto";
 }
 
+@media screen and (min-width: 1000px) {
+  main {
+    display: flex;
+  }
+
+  .sidebar {
+    flex: 1;
+  }
+
+  .list {
+    flex: 2;
+  }
+}
+
 header {
   border-bottom: 1px solid black;
 }
 
 h1 {
   font-family: "Crete Round";
-  max-width: 400px;
-  line-height: 1;
-  font-size: 3em;
   font-weight: 400;
+}
+
+p {
+  line-height: 1.5;
 }
 
 a {
   font-family: "Crete Round";
   font-size: 1.2em;
-  color: blue;
+  color: mediumblue;
+  text-decoration: none;
+  border-bottom: 1px dotted mediumblue;
+  padding-bottom: .1em;
+  line-height: 1.6;
 }
 
 .row {
@@ -34,9 +53,21 @@ a {
 
 .label {
   display: inline-block;
-  color: white;
   padding: .5em;
   margin-right: .5em;
   margin-bottom: .5em;
-  background-color: blue;
+}
+
+.labels.category .label {
+  background-color: mediumblue;
+  color: white;
+}
+
+.labels.borough .label {
+  border:1px solid mediumblue;
+  color: mediumblue;
+}
+
+.filter-option {
+  padding-bottom: .5em;
 }
